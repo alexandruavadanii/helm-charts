@@ -52,8 +52,8 @@ kafkaAppVersion: "2.1.0"
 bngAppUrl: "https://oss.sonatype.org/content/groups/public/org/opencord/bng-app/1.0.0/bng-app-1.0.0.oar"
 bngAppVersion: "1.0.0"
 
-onosRestService: "onos-ui.default.svc.cluster.local"
-kafkaService: "cord-kafka.default.svc.cluster.local:9092"
+onosRestService: "onos-ui.default.svc"
+kafkaService: "cord-kafka.default.svc:9092"
 
 # Whether to install or not the fabric service.
 fabric:

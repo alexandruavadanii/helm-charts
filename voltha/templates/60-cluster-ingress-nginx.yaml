@@ -32,6 +32,8 @@ spec:
         prometheus.io/scrape: 'true'
     spec:
       serviceAccountName: nginx-ingress-serviceaccount
+      nodeSelector:
+        nodename: "caas_master1"
       initContainers:
       - command:
         - sh
@@ -42,6 +44,8 @@ spec:
         name: sysctl
         securityContext:
           privileged: true
+          fsGroup: 1000
+          runAsUser: 1000
       containers:
         - name: nginx-ingress-controller
           image: {{ .Values.global.registry }}{{ .Values.images.ingress_controller.repository }}:{{ tpl .Values.images.ingress_controller.tag . }}

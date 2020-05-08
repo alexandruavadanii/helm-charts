@@ -85,4 +85,4 @@ authorityKeyIdentifier = keyid,issuer:always
 basicConstraints = CA:FALSE
 keyUsage = critical, digitalSignature, keyEncipherment
 extendedKeyUsage = serverAuth
-subjectAltName = 'DNS:xos-core, DNS:xos-core.default, DNS:xos-core.default.svc.cluster.local'
+subjectAltName = 'DNS:xos-core, DNS:xos-core.default, DNS:xos-core.default.svc'

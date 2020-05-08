@@ -24,6 +24,15 @@ replicas:
 node_ports:
   vcli_port: 30110
 
+nodeAffinity:
+  requiredDuringSchedulingIgnoredDuringExecution:
+    nodeSelectorTerms:
+    - matchExpressions:
+      - key: nodename
+        operator: In
+        values:
+        - caas_master1
+
 services:
   envoy:
     serviceType: NodePort
@@ -52,6 +61,10 @@ etcd:
 
 freeradius:
   enabled: true
+
+securityContext:
+  fsGroup: 1000
+  runAsUser: 1000
 
 kafkaReleaseName: cord-kafka
 etcdReleaseName: etcd-cluster
@@ -123,9 +136,9 @@ vcli_args:
 
 ofagent_args:
 - "/ofagent/ofagent/main.py"
-- "--consul=consul.$(NAMESPACE).svc.cluster.local:8500"
-- "--controller=onos-openflow.default.svc.cluster.local:6653"
-- "--grpc-endpoint=vcore.$(NAMESPACE).svc.cluster.local:50556"
+- "--consul=consul.$(NAMESPACE).svc:8500"
+- "--controller=onos-openflow.default.svc:6653"
+- "--grpc-endpoint=vcore.$(NAMESPACE).svc:50556"
 
 netconf_args:
 - "/netconf/netconf/main.py"

@@ -24,5 +24,14 @@ images:
 global:
   namespace: voltha
 
+nodeAffinity:
+  requiredDuringSchedulingIgnoredDuringExecution:
+    nodeSelectorTerms:
+    - matchExpressions:
+      - key: nodename
+        operator: In
+        values:
+        - caas_master1
+
 numOlts: 1 
 numOnus: 1

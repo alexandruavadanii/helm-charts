@@ -29,6 +29,8 @@ spec:
         cni: "calico"
     spec:
       serviceAccountName: {{ .Values.global.namespace }}-serviceaccount
+      nodeSelector:
+        nodename: "caas_master1"
       terminationGracePeriodSeconds: 10
       containers:
         - name: ofagent

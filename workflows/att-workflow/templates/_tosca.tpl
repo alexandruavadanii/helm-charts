@@ -111,7 +111,7 @@ topology_template:
           {
             "AAA" : {
               "radiusConnectionType" : "socket",
-              "radiusHost" : "freeradius.voltha.svc.cluster.local",
+              "radiusHost" : "freeradius.voltha.svc",
               "radiusServerPort" : "1812",
               "radiusSecret" : "SECRET"
             }

@@ -40,6 +40,8 @@ spec:
         app: voltha
     spec:
       serviceAccountName: {{ .Values.global.namespace }}-serviceaccount
+      nodeSelector:
+        nodename: "caas_master1"
       containers:
         - name: voltha
           image: {{ .Values.global.registry }}{{ .Values.images.envoy_for_etcd.repository }}:{{ tpl .Values.images.envoy_for_etcd.tag . }}
@@ -58,7 +60,7 @@ spec:
             - "-envoy-cfg-template=/envoy/voltha-grpc-proxy.template.json"
             - "-envoy-config=/envoy/voltha-grpc-proxy.json"
             - "-kv=etcd"
-            - "-kv-svc-name={{ .Values.etcdReleaseName }}.default.svc.cluster.local"
+            - "-kv-svc-name={{ .Values.etcdReleaseName }}.default.svc"
             - "-kv-port=2379"
           ports:
             - containerPort: 8882

@@ -43,7 +43,7 @@ spec:
          app: ponsim
          olt: olt{{ $i }}
        annotations:
-         cni: "calico,nni{{ $i }}"
+         cni: "flannel,nni{{ $i }}"
      spec:
        affinity:
         podAffinity:
@@ -87,5 +87,5 @@ spec:
             - containerPort: 50060
               name: grpc-port
        nodeSelector:
-         node-role.kubernetes.io/master: ""
+         nodename: "caas_master1"
 {{- end }}

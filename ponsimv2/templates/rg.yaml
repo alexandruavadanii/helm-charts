@@ -61,6 +61,6 @@ spec:
            securityContext:
              privileged: true
        nodeSelector:
-         node-role.kubernetes.io/master: ""
+         nodename: "caas_master1"
 {{- end }}
 {{- end }}

@@ -33,11 +33,19 @@ global:
 resources: {}
 
 nodeSelector:
-  node-role.kubernetes.io/master: ""
+  nodename: "caas_master1"
 
 tolerations: []
 
 affinity:
+  # nodeAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     nodeSelectorTerms:
+  #     - matchExpressions:
+  #       - key: nodename
+  #         operator: In
+  #         values:
+  #         - caas_master1
   podAffinity:
     preferredDuringSchedulingIgnoredDuringExecution:
     - weight: 100
@@ -52,7 +60,7 @@ affinity:
 
 mnStratumSwitchCount: 0
 topoScript: '/toposcripts/topo.py'
-onosOpenflowSvc: "onos-openflow.default.svc.cluster.local"
+onosOpenflowSvc: "onos-openflow.default.svc"
 vlanMatchDepth: 2
 enableMulticast: true
 numOlts: 1

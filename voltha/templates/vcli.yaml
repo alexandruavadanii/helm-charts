@@ -47,6 +47,8 @@ spec:
         cni: "calico"
     spec:
       serviceAccountName: {{ .Values.global.namespace }}-serviceaccount
+      nodeSelector:
+        nodename: "caas_master1"
       containers:
         - name: vcli
           image: {{ .Values.global.registry }}{{ .Values.images.vcli.repository }}:{{ tpl .Values.images.vcli.tag . }}

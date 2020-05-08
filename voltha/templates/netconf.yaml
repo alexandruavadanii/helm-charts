@@ -44,6 +44,8 @@ spec:
     spec:
       serviceAccountName: {{ .Values.global.namespace }}-serviceaccount
       terminationGracePeriodSeconds: 10
+      nodeSelector:
+        nodename: "caas_master1"
       containers:
         - name: netconf
           image: {{ .Values.global.registry }}{{ .Values.images.netconf.repository }}:{{ tpl .Values.images.netconf.tag . }}

@@ -16,8 +16,8 @@ limitations under the License.
 
 {{- define "voltha-vcore.cmd" }}
 - "voltha/voltha/main.py"
-- "--etcd={{ .Values.etcdReleaseName }}.default.svc.cluster.local:2379"
-- "--kafka={{ .Values.kafkaReleaseName }}.default.svc.cluster.local"
+- "--etcd={{ .Values.etcdReleaseName }}.default.svc:2379"
+- "--kafka={{ .Values.kafkaReleaseName }}.default.svc"
 - "--rest-port=8880"
 - "--grpc-port=50556"
 - "--interface=eth1"

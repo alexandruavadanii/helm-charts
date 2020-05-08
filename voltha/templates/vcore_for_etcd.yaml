@@ -58,6 +58,8 @@ spec:
         cni: "calico"
     spec:
       terminationGracePeriodSeconds: 0
+      nodeSelector:
+        nodename: "caas_master1"
       serviceAccountName: {{ .Values.global.namespace }}-serviceaccount
       containers:
         - name: voltha
